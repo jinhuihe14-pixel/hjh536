@@ -144,4 +144,295 @@ export const mockDashboardData: DashboardData = {
     totalMembers: 128560,
     todayCheckins: 1286,
   },
+
+  memberBenefit: {
+    memberLevels: [
+      { level: '钻石会员', count: 3280, proportion: 2.55, avgPoints: 28650, revenueContribution: 18.5 },
+      { level: '铂金会员', count: 12560, proportion: 9.77, avgPoints: 15280, revenueContribution: 28.3 },
+      { level: '黄金会员', count: 28650, proportion: 22.29, avgPoints: 8650, revenueContribution: 25.6 },
+      { level: '白银会员', count: 45280, proportion: 35.22, avgPoints: 3280, revenueContribution: 18.2 },
+      { level: '普通会员', count: 38790, proportion: 30.17, avgPoints: 580, revenueContribution: 9.4 },
+    ],
+    pointsFlow: dates.map((date, idx) => {
+      const earnedBase = 580000;
+      const spentBase = 320000;
+      const trendFactor = 1 + idx * 0.003;
+      return {
+        date,
+        earned: Math.round(earnedBase * trendFactor * (0.9 + Math.random() * 0.2)),
+        spent: Math.round(spentBase * trendFactor * (0.85 + Math.random() * 0.3)),
+        expired: Math.round(25000 * (0.8 + Math.random() * 0.4)),
+      };
+    }),
+    couponTypes: [
+      { name: '满500减80', totalIssued: 28650, used: 12580, expired: 4520, usageRate: 43.9, avgDiscount: 72, driveRevenue: 6280000 },
+      { name: '满300减50', totalIssued: 52300, used: 22680, expired: 8560, usageRate: 43.4, avgDiscount: 45, driveRevenue: 8560000 },
+      { name: '首住立减100', totalIssued: 15800, used: 6850, expired: 2340, usageRate: 43.4, avgDiscount: 100, driveRevenue: 3280000 },
+      { name: '生日特惠券', totalIssued: 8650, used: 4820, expired: 1280, usageRate: 55.7, avgDiscount: 128, driveRevenue: 2850000 },
+      { name: '连住3晚9折', totalIssued: 12500, used: 3680, expired: 4520, usageRate: 29.4, avgDiscount: 156, driveRevenue: 4120000 },
+      { name: '房型升级券', totalIssued: 9800, used: 2560, expired: 3850, usageRate: 26.1, avgDiscount: 88, driveRevenue: 1560000 },
+    ],
+    rightsUsage: [
+      { name: '免费早餐', totalCount: 58650, usedCount: 32800, usageRate: 55.9, satisfaction: 92.5 },
+      { name: '延迟退房', totalCount: 45280, usedCount: 28650, usageRate: 63.3, satisfaction: 88.3 },
+      { name: '免费升级', totalCount: 28650, usedCount: 12580, usageRate: 43.9, satisfaction: 95.2 },
+      { name: '专属客服', totalCount: 35280, usedCount: 8650, usageRate: 24.5, satisfaction: 82.6 },
+      { name: '积分加倍', totalCount: 25600, usedCount: 18560, usageRate: 72.5, satisfaction: 90.8 },
+      { name: '机场接送', totalCount: 12580, usedCount: 3280, usageRate: 26.1, satisfaction: 78.5 },
+      { name: '免费停车', totalCount: 42650, usedCount: 22800, usageRate: 53.5, satisfaction: 85.6 },
+      { name: '迷你吧免费', totalCount: 18650, usedCount: 6580, usageRate: 35.3, satisfaction: 72.3 },
+    ],
+    activityEffects: [
+      { activityName: '周年庆大促', newMembers: 5280, rePurchaseRate: 38.5, avgOrderValue: 486, revenueIncrease: 2680000, roi: 3.8 },
+      { activityName: '双11特惠', newMembers: 8650, rePurchaseRate: 32.8, avgOrderValue: 412, revenueIncrease: 4520000, roi: 4.2 },
+      { activityName: '会员日专享', newMembers: 3280, rePurchaseRate: 45.2, avgOrderValue: 528, revenueIncrease: 1850000, roi: 2.9 },
+      { activityName: '邀请好友', newMembers: 6580, rePurchaseRate: 28.6, avgOrderValue: 385, revenueIncrease: 2180000, roi: 3.5 },
+      { activityName: '生日礼遇', newMembers: 2360, rePurchaseRate: 52.3, avgOrderValue: 568, revenueIncrease: 1280000, roi: 2.6 },
+    ],
+    churnTrend: [
+      { month: '1月', highLevelChurn: 128, midLevelChurn: 356, lowLevelChurn: 856 },
+      { month: '2月', highLevelChurn: 142, midLevelChurn: 382, lowLevelChurn: 920 },
+      { month: '3月', highLevelChurn: 115, midLevelChurn: 325, lowLevelChurn: 780 },
+      { month: '4月', highLevelChurn: 136, midLevelChurn: 368, lowLevelChurn: 895 },
+      { month: '5月', highLevelChurn: 158, midLevelChurn: 412, lowLevelChurn: 1020 },
+      { month: '6月', highLevelChurn: 148, midLevelChurn: 395, lowLevelChurn: 968 },
+    ],
+    kpi: {
+      totalMembers: 128560,
+      activeMembers: 72680,
+      highLevelRate: 12.3,
+      avgPointsPerMember: 5680,
+      couponUsageRate: 41.8,
+      memberRevenueContribution: 38.5,
+      churnRate: 5.8,
+      pointsTurnoverRate: 62.3,
+    },
+  },
+
+  channelPrice: {
+    competitors: [
+      { id: 'c1', name: '希尔顿酒店', star: 5, distance: 0.8, city: '上海' },
+      { id: 'c2', name: '万豪酒店', star: 5, distance: 1.2, city: '上海' },
+      { id: 'c3', name: '洲际酒店', star: 5, distance: 1.5, city: '上海' },
+      { id: 'c4', name: '如家精选', star: 4, distance: 0.5, city: '上海' },
+      { id: 'c5', name: '汉庭优佳', star: 3, distance: 0.3, city: '上海' },
+    ],
+    roomTypePrices: [
+      {
+        roomType: '标准大床房',
+        ourPrice: 428,
+        competitorPrices: [
+          { competitor: '希尔顿酒店', price: 568 },
+          { competitor: '万豪酒店', price: 528 },
+          { competitor: '洲际酒店', price: 548 },
+          { competitor: '如家精选', price: 388 },
+          { competitor: '汉庭优佳', price: 298 },
+        ],
+        avgMarketPrice: 466,
+        priceDiff: -38,
+        priceDiffPercent: -8.2,
+      },
+      {
+        roomType: '标准双床房',
+        ourPrice: 458,
+        competitorPrices: [
+          { competitor: '希尔顿酒店', price: 628 },
+          { competitor: '万豪酒店', price: 588 },
+          { competitor: '洲际酒店', price: 598 },
+          { competitor: '如家精选', price: 418 },
+          { competitor: '汉庭优佳', price: 328 },
+        ],
+        avgMarketPrice: 512,
+        priceDiff: -54,
+        priceDiffPercent: -10.5,
+      },
+      {
+        roomType: '豪华大床房',
+        ourPrice: 588,
+        competitorPrices: [
+          { competitor: '希尔顿酒店', price: 788 },
+          { competitor: '万豪酒店', price: 728 },
+          { competitor: '洲际酒店', price: 758 },
+          { competitor: '如家精选', price: 528 },
+          { competitor: '汉庭优佳', price: 428 },
+        ],
+        avgMarketPrice: 646,
+        priceDiff: -58,
+        priceDiffPercent: -9.0,
+      },
+      {
+        roomType: '行政套房',
+        ourPrice: 888,
+        competitorPrices: [
+          { competitor: '希尔顿酒店', price: 1288 },
+          { competitor: '万豪酒店', price: 1188 },
+          { competitor: '洲际酒店', price: 1228 },
+          { competitor: '如家精选', price: 688 },
+          { competitor: '汉庭优佳', price: 568 },
+        ],
+        avgMarketPrice: 992,
+        priceDiff: -104,
+        priceDiffPercent: -10.5,
+      },
+      {
+        roomType: '总统套房',
+        ourPrice: 1888,
+        competitorPrices: [
+          { competitor: '希尔顿酒店', price: 2888 },
+          { competitor: '万豪酒店', price: 2688 },
+          { competitor: '洲际酒店', price: 2788 },
+          { competitor: '如家精选', price: 1288 },
+          { competitor: '汉庭优佳', price: 988 },
+        ],
+        avgMarketPrice: 2128,
+        priceDiff: -240,
+        priceDiffPercent: -11.3,
+      },
+    ],
+    priceTrend: dates.slice(0, 15).map((date, idx) => {
+      const base = 428;
+      const trend = 1 + idx * 0.005;
+      const ourVariance = (Math.random() - 0.5) * 30;
+      const marketVariance = (Math.random() - 0.5) * 40;
+      return {
+        date,
+        ourPrice: Math.round(base * trend + ourVariance),
+        competitorAvgPrice: Math.round(base * 1.1 * trend + marketVariance),
+        marketMinPrice: Math.round(base * 0.7 * trend + (Math.random() - 0.5) * 20),
+        marketMaxPrice: Math.round(base * 1.5 * trend + (Math.random() - 0.5) * 50),
+      };
+    }),
+    channelCompare: [
+      { channel: '携程', ourPrice: 428, avgMarketPrice: 466, priceDiff: -38, priceDiffPercent: -8.2, priceRank: 3, totalCompetitors: 15 },
+      { channel: '美团', ourPrice: 418, avgMarketPrice: 458, priceDiff: -40, priceDiffPercent: -8.7, priceRank: 2, totalCompetitors: 15 },
+      { channel: '飞猪', ourPrice: 432, avgMarketPrice: 472, priceDiff: -40, priceDiffPercent: -8.5, priceRank: 4, totalCompetitors: 15 },
+      { channel: '官网', ourPrice: 408, avgMarketPrice: 466, priceDiff: -58, priceDiffPercent: -12.4, priceRank: 1, totalCompetitors: 15 },
+      { channel: '线下', ourPrice: 458, avgMarketPrice: 466, priceDiff: -8, priceDiffPercent: -1.7, priceRank: 7, totalCompetitors: 15 },
+    ],
+    priceAlerts: [
+      { id: 'pa1', type: 'overpriced', roomType: '总统套房', ourPrice: 1888, marketPrice: 1680, diffPercent: 12.4, competitor: '万豪酒店', time: '30分钟前', store: '上海陆家嘴店' },
+      { id: 'pa2', type: 'underpriced', roomType: '标准大床房', ourPrice: 368, marketPrice: 420, diffPercent: -12.4, competitor: '希尔顿酒店', time: '1小时前', store: '北京国贸店' },
+      { id: 'pa3', type: 'competitor_change', roomType: '豪华大床房', ourPrice: 588, marketPrice: 568, diffPercent: 3.5, competitor: '希尔顿酒店', time: '2小时前', store: '深圳福田店' },
+      { id: 'pa4', type: 'overpriced', roomType: '行政套房', ourPrice: 888, marketPrice: 798, diffPercent: 11.3, competitor: '洲际酒店', time: '3小时前', store: '广州天河店' },
+      { id: 'pa5', type: 'competitor_change', roomType: '标准双床房', ourPrice: 458, marketPrice: 488, diffPercent: -6.1, competitor: '万豪酒店', time: '4小时前', store: '杭州西湖店' },
+    ],
+    competitorActions: [
+      { id: 'ca1', competitor: '希尔顿酒店', action: 'price_down', detail: '标准大床房降价12%', priceChange: -58, time: '1小时前', impact: 'high' },
+      { id: 'ca2', competitor: '万豪酒店', action: 'promotion', detail: '推出连住3晚8折活动', time: '2小时前', impact: 'medium' },
+      { id: 'ca3', competitor: '洲际酒店', action: 'price_up', detail: '行政套房涨价8%', priceChange: 88, time: '3小时前', impact: 'low' },
+      { id: 'ca4', competitor: '如家精选', action: 'new_room', detail: '新增家庭房型', time: '5小时前', impact: 'medium' },
+      { id: 'ca5', competitor: '汉庭优佳', action: 'promotion', detail: '新用户首单立减100', time: '6小时前', impact: 'low' },
+    ],
+    kpi: {
+      avgPriceIndex: 92.5,
+      priceCompetitiveness: 78.6,
+      alertCount: 12,
+      avgPriceDiff: -6.8,
+      belowMarketRooms: 4,
+      competitorCount: 5,
+    },
+  },
+
+  energyAnalysis: {
+    categories: [
+      { category: '电力', consumption: 2580000, cost: 1850000, unitPrice: 0.72, proportion: 56.8, yoyChange: 3.2 },
+      { category: '自来水', consumption: 85000, cost: 420000, unitPrice: 4.94, proportion: 12.9, yoyChange: -1.5 },
+      { category: '燃气', consumption: 128000, cost: 520000, unitPrice: 4.06, proportion: 16.0, yoyChange: 5.8 },
+      { category: '布草洗涤', consumption: 52000, cost: 280000, unitPrice: 5.38, proportion: 8.6, yoyChange: 2.1 },
+      { category: '电梯能耗', consumption: 185000, cost: 180000, unitPrice: 0.97, proportion: 5.5, yoyChange: 4.2 },
+    ],
+    zones: [
+      { zone: '客房区域', consumption: 1280000, cost: 920000, proportion: 42.5, area: 12000 },
+      { zone: '公共区域', consumption: 580000, cost: 420000, proportion: 19.4, area: 3500 },
+      { zone: '餐饮区域', consumption: 480000, cost: 350000, proportion: 15.9, area: 2800 },
+      { zone: '康体区域', consumption: 280000, cost: 200000, proportion: 9.3, area: 1800 },
+      { zone: '办公区域', consumption: 180000, cost: 130000, proportion: 6.0, area: 1500 },
+      { zone: '后勤区域', consumption: 200000, cost: 150000, proportion: 6.6, area: 1200 },
+    ],
+    floors: [
+      { floor: '1F-大堂', consumption: 180000, cost: 130000, rooms: 0, perRoomConsumption: 0 },
+      { floor: '2F-餐饮', consumption: 320000, cost: 230000, rooms: 0, perRoomConsumption: 0 },
+      { floor: '3F-康体', consumption: 180000, cost: 130000, rooms: 0, perRoomConsumption: 0 },
+      { floor: '5-10F客房', consumption: 520000, cost: 375000, rooms: 120, perRoomConsumption: 4333 },
+      { floor: '11-20F客房', consumption: 580000, cost: 415000, rooms: 160, perRoomConsumption: 3625 },
+      { floor: '21-25F行政', consumption: 280000, cost: 200000, rooms: 80, perRoomConsumption: 3500 },
+    ],
+    hourlyData: Array.from({ length: 24 }, (_, i) => {
+      const hour = i.toString().padStart(2, '0') + ':00';
+      const isPeak = i >= 18 && i <= 22;
+      const isValley = i >= 2 && i <= 6;
+      const baseConsumption = isPeak ? 180000 : isValley ? 60000 : 120000;
+      const baseOccupancy = isPeak ? 85 : isValley ? 60 : 75;
+      return {
+        hour,
+        consumption: Math.round(baseConsumption * (0.9 + Math.random() * 0.2)),
+        cost: Math.round(baseConsumption * 0.72 * (isValley ? 0.5 : isPeak ? 1.2 : 1)),
+        occupancyRate: Math.round(baseOccupancy + (Math.random() - 0.5) * 10),
+      };
+    }),
+    seasonalData: [
+      { month: '1月', consumption: 2280000, cost: 1650000, occupancyRate: 62.5, perRoomConsumption: 3850 },
+      { month: '2月', consumption: 2180000, cost: 1580000, occupancyRate: 58.3, perRoomConsumption: 3980 },
+      { month: '3月', consumption: 2480000, cost: 1780000, occupancyRate: 72.1, perRoomConsumption: 3440 },
+      { month: '4月', consumption: 2680000, cost: 1920000, occupancyRate: 78.5, perRoomConsumption: 3410 },
+      { month: '5月', consumption: 2850000, cost: 2050000, occupancyRate: 82.3, perRoomConsumption: 3460 },
+      { month: '6月', consumption: 3280000, cost: 2380000, occupancyRate: 85.6, perRoomConsumption: 3830 },
+      { month: '7月', consumption: 3680000, cost: 2680000, occupancyRate: 88.2, perRoomConsumption: 4170 },
+      { month: '8月', consumption: 3580000, cost: 2580000, occupancyRate: 86.5, perRoomConsumption: 4140 },
+      { month: '9月', consumption: 2980000, cost: 2150000, occupancyRate: 79.8, perRoomConsumption: 3730 },
+      { month: '10月', consumption: 3180000, cost: 2280000, occupancyRate: 83.2, perRoomConsumption: 3820 },
+      { month: '11月', consumption: 2580000, cost: 1850000, occupancyRate: 71.5, perRoomConsumption: 3610 },
+      { month: '12月', consumption: 2480000, cost: 1780000, occupancyRate: 68.3, perRoomConsumption: 3630 },
+    ],
+    anomalies: [
+      { id: 'ea1', zone: '11-20F客房', type: 'high_consumption', description: '本月能耗超出同区域均值22%', excessPercent: 22.5, estimatedLoss: 28000, time: '3天前', status: 'pending' },
+      { id: 'ea2', zone: '中央空调系统', type: 'equipment_fault', description: '1号冷水机组能效比下降15%', excessPercent: 15.0, estimatedLoss: 18000, time: '1天前', status: 'processing' },
+      { id: 'ea3', zone: '地下停车场', type: 'abnormal_spike', description: '凌晨2-4点用电异常激增', excessPercent: 45.0, estimatedLoss: 8000, time: '5小时前', status: 'pending' },
+      { id: 'ea4', zone: '餐饮区域', type: 'high_consumption', description: '厨房燃气消耗量超标准18%', excessPercent: 18.0, estimatedLoss: 12000, time: '2天前', status: 'resolved' },
+      { id: 'ea5', zone: '康体区域', type: 'equipment_fault', description: '泳池加热系统效率异常', excessPercent: 25.0, estimatedLoss: 15000, time: '1周前', status: 'resolved' },
+    ],
+    savingSuggestions: [
+      { id: 'ss1', category: '照明系统', title: 'LED灯具改造', description: '将公共区域传统灯具替换为LED智能照明系统，配备人体感应和亮度调节', expectedSaving: 280000, investmentCost: 450000, paybackPeriod: 1.6, priority: 'high' },
+      { id: 'ss2', category: '空调系统', title: '中央空调变频改造', description: '对冷水机组进行变频改造，根据负荷自动调节运行频率', expectedSaving: 520000, investmentCost: 1200000, paybackPeriod: 2.3, priority: 'high' },
+      { id: 'ss3', category: '热水系统', title: '空气源热泵替代', description: '用空气源热泵替代部分燃气热水炉，利用空气中的热能加热热水', expectedSaving: 180000, investmentCost: 380000, paybackPeriod: 2.1, priority: 'medium' },
+      { id: 'ss4', category: '智能管控', title: '客房智能控电系统', description: '安装客房智能控制系统，实现插卡取电、无人自动断电等功能', expectedSaving: 150000, investmentCost: 280000, paybackPeriod: 1.9, priority: 'high' },
+      { id: 'ss5', category: '水资源', title: '中水回用系统', description: '建设中水回用系统，将处理后的废水用于绿化和冲厕', expectedSaving: 80000, investmentCost: 320000, paybackPeriod: 4.0, priority: 'low' },
+      { id: 'ss6', category: '电梯系统', title: '电梯能量回馈', description: '安装电梯能量回馈装置，将电梯下行时产生的电能回馈电网', expectedSaving: 65000, investmentCost: 150000, paybackPeriod: 2.3, priority: 'medium' },
+    ],
+    kpi: {
+      totalEnergyCost: 3250000,
+      perRoomEnergyCost: 128,
+      energyCostPerRevenue: 8.6,
+      energyConsumptionYoY: 3.2,
+      energySavingAmount: 280000,
+      energySavingRate: 7.9,
+      anomalyCount: 5,
+      peakValleyDiff: 32.5,
+    },
+  },
+
+  reportTemplates: [
+    { id: 'rt1', name: '每日经营日报', description: '包含核心KPI、营收、入住率等关键指标', category: '经营分析', creator: '系统', createTime: '2024-01-01', isSystem: true, metrics: ['营收', 'ADR', '出租率', 'RevPAR'], dimensions: ['日期', '门店'] },
+    { id: 'rt2', name: '月度营收分析', description: '详细的月度营收拆解和同比环比分析', category: '经营分析', creator: '系统', createTime: '2024-01-01', isSystem: true, metrics: ['营收', '成本', '利润', '利润率'], dimensions: ['月份', '门店', '房型'] },
+    { id: 'rt3', name: '渠道效果分析', description: '各OTA渠道的订单、营收、获客成本分析', category: '渠道分析', creator: '系统', createTime: '2024-01-01', isSystem: true, metrics: ['订单量', '营收', '获客成本', '转化率'], dimensions: ['渠道', '月份'] },
+    { id: 'rt4', name: '会员权益报表', description: '会员等级分布、权益使用、积分流转分析', category: '会员分析', creator: '运营部', createTime: '2024-03-15', isSystem: false, metrics: ['会员数', '权益使用率', '积分获取', '积分消耗'], dimensions: ['会员等级', '月份'] },
+    { id: 'rt5', name: '能耗成本月报', description: '水电气能耗分项统计及成本分析', category: '成本分析', creator: '工程部', createTime: '2024-02-20', isSystem: false, metrics: ['用电量', '用水量', '用气量', '能耗成本'], dimensions: ['月份', '区域', '楼层'] },
+    { id: 'rt6', name: '竞对价格监控', description: '周边竞品酒店价格对比及价差分析', category: '市场分析', creator: '市场部', createTime: '2024-04-10', isSystem: false, metrics: ['本店价格', '竞品均价', '价差', '排名'], dimensions: ['房型', '渠道', '日期'] },
+  ],
+
+  scheduledReports: [
+    { id: 'sr1', templateId: 'rt1', templateName: '每日经营日报', frequency: 'daily', sendTime: '09:00', recipients: ['总经理', '运营总监', '财务总监'], formats: ['PDF', 'Excel'], status: 'active', lastSendTime: '2024-06-08 09:00' },
+    { id: 'sr2', templateId: 'rt2', templateName: '月度营收分析', frequency: 'monthly', sendTime: '01日 10:00', recipients: ['总经理', '财务总监', '各门店店长'], formats: ['PDF', 'Excel', 'PPT'], status: 'active', lastSendTime: '2024-06-01 10:00' },
+    { id: 'sr3', templateId: 'rt3', templateName: '渠道效果分析', frequency: 'weekly', sendTime: '周一 09:30', recipients: ['渠道经理', '运营总监'], formats: ['Excel'], status: 'active', lastSendTime: '2024-06-03 09:30' },
+    { id: 'sr4', templateId: 'rt4', templateName: '会员权益报表', frequency: 'monthly', sendTime: '05日 14:00', recipients: ['会员运营经理', '市场总监'], formats: ['PDF', 'Excel'], status: 'paused' },
+  ],
+
+  userRoles: [
+    { id: 'role1', name: '集团管理员', code: 'admin', description: '拥有全部数据权限和系统管理权限', permissions: ['数据查看', '数据导出', '报表管理', '系统设置', '用户管理', '权限配置'], userCount: 3 },
+    { id: 'role2', name: '运营总监', code: 'operation_director', description: '全域经营数据查看及报表管理权限', permissions: ['数据查看', '数据导出', '报表管理', '门店数据', '会员数据'], userCount: 2 },
+    { id: 'role3', name: '财务经理', code: 'finance_manager', description: '财务相关数据查看及导出权限', permissions: ['数据查看', '数据导出', '财务数据', '成本数据'], userCount: 5 },
+    { id: 'role4', name: '门店店长', code: 'store_manager', description: '仅可查看管辖门店的经营数据', permissions: ['数据查看', '门店数据'], userCount: 12 },
+    { id: 'role5', name: '数据分析师', code: 'data_analyst', description: '数据只读+报表导出，支持自定义报表', permissions: ['数据查看', '数据导出', '报表管理', '自定义报表'], userCount: 8 },
+    { id: 'role6', name: '数据只读', code: 'readonly', description: '仅可查看数据，无导出权限', permissions: ['数据查看'], userCount: 15 },
+  ],
 };

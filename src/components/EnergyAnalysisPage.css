@@ -1,0 +1,275 @@
+.energy-analysis-page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  box-sizing: border-box;
+  min-height: 0;
+  position: relative;
+}
+
+.energy-analysis-page .kpi-row {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 8px;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.energy-analysis-page .main-content {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 320px 1fr 320px;
+  gap: 12px;
+  min-height: 0;
+  min-width: 0;
+}
+
+.energy-analysis-page .left-column,
+.energy-analysis-page .right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+  min-width: 0;
+}
+
+.energy-analysis-page .left-column .panel,
+.energy-analysis-page .right-column .panel {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+}
+
+.energy-analysis-page .center-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+  min-width: 0;
+}
+
+.energy-analysis-page .center-column .panel {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+}
+
+.energy-analysis-page .chart-container {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  position: relative;
+}
+
+.energy-analysis-page .chart-container > div {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.energy-analysis-page .anomaly-list {
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-right: 4px;
+}
+
+.energy-analysis-page .anomaly-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.energy-analysis-page .anomaly-list::-webkit-scrollbar-track {
+  background: rgba(0, 100, 200, 0.1);
+  border-radius: 2px;
+}
+
+.energy-analysis-page .anomaly-list::-webkit-scrollbar-thumb {
+  background: rgba(0, 150, 255, 0.3);
+  border-radius: 2px;
+}
+
+.energy-analysis-page .anomaly-item {
+  position: relative;
+  padding: 10px 12px;
+  background: linear-gradient(135deg, rgba(0, 80, 180, 0.15) 0%, rgba(0, 40, 100, 0.08) 100%);
+  border: 1px solid rgba(0, 150, 255, 0.15);
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.energy-analysis-page .anomaly-item:hover {
+  background: rgba(0, 80, 160, 0.25);
+  transform: translateX(2px);
+}
+
+.energy-analysis-page .anomaly-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.energy-analysis-page .anomaly-type {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.energy-analysis-page .anomaly-status {
+  font-size: 11px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.energy-analysis-page .anomaly-zone {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e6f1ff;
+  margin-bottom: 4px;
+}
+
+.energy-analysis-page .anomaly-desc {
+  font-size: 11px;
+  color: rgba(230, 241, 255, 0.65);
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.energy-analysis-page .anomaly-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: rgba(230, 241, 255, 0.5);
+  margin-bottom: 4px;
+}
+
+.energy-analysis-page .anomaly-time {
+  font-size: 10px;
+  color: rgba(230, 241, 255, 0.4);
+  text-align: right;
+}
+
+.energy-analysis-page .suggestion-list {
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-right: 4px;
+}
+
+.energy-analysis-page .suggestion-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.energy-analysis-page .suggestion-list::-webkit-scrollbar-track {
+  background: rgba(0, 100, 200, 0.1);
+  border-radius: 2px;
+}
+
+.energy-analysis-page .suggestion-list::-webkit-scrollbar-thumb {
+  background: rgba(0, 150, 255, 0.3);
+  border-radius: 2px;
+}
+
+.energy-analysis-page .suggestion-item {
+  padding: 10px 12px;
+  background: linear-gradient(135deg, rgba(0, 80, 180, 0.15) 0%, rgba(0, 40, 100, 0.08) 100%);
+  border: 1px solid rgba(0, 150, 255, 0.15);
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.energy-analysis-page .suggestion-item:hover {
+  background: rgba(0, 80, 160, 0.25);
+  transform: translateX(2px);
+}
+
+.energy-analysis-page .suggestion-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.energy-analysis-page .suggestion-priority {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.energy-analysis-page .suggestion-category {
+  font-size: 10px;
+  color: rgba(230, 241, 255, 0.5);
+  flex-shrink: 0;
+}
+
+.energy-analysis-page .suggestion-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #e6f1ff;
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.energy-analysis-page .suggestion-desc {
+  font-size: 11px;
+  color: rgba(230, 241, 255, 0.6);
+  line-height: 1.5;
+  margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.energy-analysis-page .suggestion-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: rgba(230, 241, 255, 0.5);
+}
+
+.energy-analysis-page .suggestion-saving,
+.energy-analysis-page .suggestion-payback {
+  flex-shrink: 0;
+}
+
+@media (max-width: 1600px) {
+  .energy-analysis-page .main-content {
+    grid-template-columns: 340px 1fr 340px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .energy-analysis-page .kpi-row {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .energy-analysis-page .main-content {
+    grid-template-columns: 1fr;
+  }
+
+  .energy-analysis-page .left-column,
+  .energy-analysis-page .right-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .energy-analysis-page .left-column .panel,
+  .energy-analysis-page .right-column .panel {
+    height: 280px;
+  }
+}

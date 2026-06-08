@@ -101,6 +101,263 @@ export interface StoreInfo {
   lat: number;
 }
 
+export interface MemberLevelData {
+  level: string;
+  count: number;
+  proportion: number;
+  avgPoints: number;
+  revenueContribution: number;
+}
+
+export interface PointsFlowItem {
+  date: string;
+  earned: number;
+  spent: number;
+  expired: number;
+}
+
+export interface CouponTypeData {
+  name: string;
+  totalIssued: number;
+  used: number;
+  expired: number;
+  usageRate: number;
+  avgDiscount: number;
+  driveRevenue: number;
+}
+
+export interface RightsUsageData {
+  name: string;
+  totalCount: number;
+  usedCount: number;
+  usageRate: number;
+  satisfaction: number;
+}
+
+export interface MemberActivityEffect {
+  activityName: string;
+  newMembers: number;
+  rePurchaseRate: number;
+  avgOrderValue: number;
+  revenueIncrease: number;
+  roi: number;
+}
+
+export interface MemberChurnTrendItem {
+  month: string;
+  highLevelChurn: number;
+  midLevelChurn: number;
+  lowLevelChurn: number;
+}
+
+export interface MemberBenefitData {
+  memberLevels: MemberLevelData[];
+  pointsFlow: PointsFlowItem[];
+  couponTypes: CouponTypeData[];
+  rightsUsage: RightsUsageData[];
+  activityEffects: MemberActivityEffect[];
+  churnTrend: MemberChurnTrendItem[];
+  kpi: {
+    totalMembers: number;
+    activeMembers: number;
+    highLevelRate: number;
+    avgPointsPerMember: number;
+    couponUsageRate: number;
+    memberRevenueContribution: number;
+    churnRate: number;
+    pointsTurnoverRate: number;
+  };
+}
+
+export interface CompetitorHotel {
+  id: string;
+  name: string;
+  star: number;
+  distance: number;
+  city: string;
+}
+
+export interface RoomTypePrice {
+  roomType: string;
+  ourPrice: number;
+  competitorPrices: { competitor: string; price: number }[];
+  avgMarketPrice: number;
+  priceDiff: number;
+  priceDiffPercent: number;
+}
+
+export interface PriceTrendItem {
+  date: string;
+  ourPrice: number;
+  competitorAvgPrice: number;
+  marketMinPrice: number;
+  marketMaxPrice: number;
+}
+
+export interface ChannelPriceCompare {
+  channel: string;
+  ourPrice: number;
+  avgMarketPrice: number;
+  priceDiff: number;
+  priceDiffPercent: number;
+  priceRank: number;
+  totalCompetitors: number;
+}
+
+export interface PriceAlertItem {
+  id: string;
+  type: 'overpriced' | 'underpriced' | 'competitor_change';
+  roomType: string;
+  ourPrice: number;
+  marketPrice: number;
+  diffPercent: number;
+  competitor: string;
+  time: string;
+  store: string;
+}
+
+export interface CompetitorActionItem {
+  id: string;
+  competitor: string;
+  action: 'price_up' | 'price_down' | 'promotion' | 'new_room';
+  detail: string;
+  priceChange?: number;
+  time: string;
+  impact: 'high' | 'medium' | 'low';
+}
+
+export interface ChannelPriceData {
+  competitors: CompetitorHotel[];
+  roomTypePrices: RoomTypePrice[];
+  priceTrend: PriceTrendItem[];
+  channelCompare: ChannelPriceCompare[];
+  priceAlerts: PriceAlertItem[];
+  competitorActions: CompetitorActionItem[];
+  kpi: {
+    avgPriceIndex: number;
+    priceCompetitiveness: number;
+    alertCount: number;
+    avgPriceDiff: number;
+    belowMarketRooms: number;
+    competitorCount: number;
+  };
+}
+
+export interface EnergyCategoryItem {
+  category: string;
+  consumption: number;
+  cost: number;
+  unitPrice: number;
+  proportion: number;
+  yoyChange: number;
+}
+
+export interface EnergyZoneItem {
+  zone: string;
+  consumption: number;
+  cost: number;
+  proportion: number;
+  area: number;
+}
+
+export interface EnergyFloorItem {
+  floor: string;
+  consumption: number;
+  cost: number;
+  rooms: number;
+  perRoomConsumption: number;
+}
+
+export interface EnergyTimeItem {
+  hour: string;
+  consumption: number;
+  cost: number;
+  occupancyRate: number;
+}
+
+export interface EnergySeasonItem {
+  month: string;
+  consumption: number;
+  cost: number;
+  occupancyRate: number;
+  perRoomConsumption: number;
+}
+
+export interface EnergyAnomalyItem {
+  id: string;
+  zone: string;
+  type: 'high_consumption' | 'abnormal_spike' | 'equipment_fault';
+  description: string;
+  excessPercent: number;
+  estimatedLoss: number;
+  time: string;
+  status: 'pending' | 'processing' | 'resolved';
+}
+
+export interface EnergySavingSuggestion {
+  id: string;
+  category: string;
+  title: string;
+  description: string;
+  expectedSaving: number;
+  investmentCost: number;
+  paybackPeriod: number;
+  priority: 'high' | 'medium' | 'low';
+}
+
+export interface EnergyAnalysisData {
+  categories: EnergyCategoryItem[];
+  zones: EnergyZoneItem[];
+  floors: EnergyFloorItem[];
+  hourlyData: EnergyTimeItem[];
+  seasonalData: EnergySeasonItem[];
+  anomalies: EnergyAnomalyItem[];
+  savingSuggestions: EnergySavingSuggestion[];
+  kpi: {
+    totalEnergyCost: number;
+    perRoomEnergyCost: number;
+    energyCostPerRevenue: number;
+    energyConsumptionYoY: number;
+    energySavingAmount: number;
+    energySavingRate: number;
+    anomalyCount: number;
+    peakValleyDiff: number;
+  };
+}
+
+export interface ReportTemplate {
+  id: string;
+  name: string;
+  description: string;
+  category: string;
+  creator: string;
+  createTime: string;
+  isSystem: boolean;
+  metrics: string[];
+  dimensions: string[];
+}
+
+export interface ScheduledReport {
+  id: string;
+  templateId: string;
+  templateName: string;
+  frequency: 'daily' | 'weekly' | 'monthly';
+  sendTime: string;
+  recipients: string[];
+  formats: string[];
+  status: 'active' | 'paused';
+  lastSendTime?: string;
+}
+
+export interface UserRole {
+  id: string;
+  name: string;
+  code: string;
+  description: string;
+  permissions: string[];
+  userCount: number;
+}
+
 export interface DashboardData {
   kpi: KpiData;
   revenueTrend: RevenueTrendItem[];
@@ -119,4 +376,10 @@ export interface DashboardData {
     totalMembers: number;
     todayCheckins: number;
   };
+  memberBenefit: MemberBenefitData;
+  channelPrice: ChannelPriceData;
+  energyAnalysis: EnergyAnalysisData;
+  reportTemplates: ReportTemplate[];
+  scheduledReports: ScheduledReport[];
+  userRoles: UserRole[];
 }

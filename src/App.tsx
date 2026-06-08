@@ -13,10 +13,16 @@ import StoreRanking from './components/StoreRanking';
 import AlertList from './components/AlertList';
 import StoreMap from './components/StoreMap';
 import StoreDetailModal from './components/StoreDetailModal';
+import NavTabs, { TabKey } from './components/NavTabs';
+import MemberBenefitPage from './components/MemberBenefitPage';
+import ChannelPricePage from './components/ChannelPricePage';
+import EnergyAnalysisPage from './components/EnergyAnalysisPage';
+import ReportCenterPage from './components/ReportCenterPage';
+import PermissionPage from './components/PermissionPage';
 import { mockDashboardData } from './data/mockData';
 import { StoreInfo, StoreProfit } from './data/types';
 
-function App() {
+function DashboardView() {
   const data = mockDashboardData;
   const [selectedStore, setSelectedStore] = useState<StoreInfo | null>(null);
 
@@ -39,9 +45,7 @@ function App() {
   };
 
   return (
-    <div className="dashboard-container">
-      <Header />
-
+    <>
       <div className="dashboard-body">
         <div className="dashboard-left">
           <Panel title="收益管理" subtitle="近30天趋势">
@@ -152,6 +156,49 @@ function App() {
       </div>
 
       <StoreDetailModal store={selectedStore} onClose={() => setSelectedStore(null)} />
+    </>
+  );
+}
+
+function App() {
+  const [activeTab, setActiveTab] = useState<TabKey>('dashboard');
+  const data = mockDashboardData;
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'dashboard':
+        return <DashboardView />;
+      case 'member':
+        return <MemberBenefitPage data={data.memberBenefit} />;
+      case 'price':
+        return <ChannelPricePage data={data.channelPrice} />;
+      case 'energy':
+        return <EnergyAnalysisPage data={data.energyAnalysis} />;
+      case 'report':
+        return (
+          <div className="page-wrapper">
+            <ReportCenterPage
+              templates={data.reportTemplates}
+              scheduledReports={data.scheduledReports}
+            />
+          </div>
+        );
+      case 'permission':
+        return (
+          <div className="page-wrapper">
+            <PermissionPage roles={data.userRoles} />
+          </div>
+        );
+      default:
+        return <DashboardView />;
+    }
+  };
+
+  return (
+    <div className="dashboard-container">
+      <Header />
+      <NavTabs activeTab={activeTab} onTabChange={setActiveTab} />
+      {renderContent()}
     </div>
   );
 }
